@@ -1,0 +1,24 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>所有用户信息</title>
+</head>
+<body>
+<table>
+    <tr><td>用户id</td><td>用户名</td><td>密码</td><td>手机号码</td><td>修改</td><td>删除</td></tr>
+    <tr th:each="u,state:${list}">
+        <td th:text="${u.id}"></td>
+        <td th:text="${u.username}"></td>
+        <td th:text="${u.password}"></td>
+        <td th:text="${u.tell}"></td>
+        <td><a th:href="@{/user/qby(id=${u.id})}">更改</a></td>
+        <td><a th:href="@{/user/delete(id=${u.id})}">删除</a></td>
+    </tr>
+</table>
+<a href="/user/qby?id=2" >id查询在all.html</a>
+</body>
+<script>
+
+</script>
+</html>

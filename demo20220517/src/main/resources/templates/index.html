@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="utf-8" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>springboot+mybatis的增删改查</title>
+</head>
+<body>
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<h1>springboot+mybatis的增删改查</h1>
+<input type="text" name="username" placeholder="用户名" id="username"/><br>
+<input type="password" name="password" placeholder="" id="password"/><br>
+<input type="text" name="tell" placeholder="手机号码" id="tell"/><br>
+<button onclick="reg()">注册</button><br/>
+<a href="http://localhost:8080/user/query/">查询所有信息</a><br/>
+</body><script>
+    function reg() {
+        var username = $("#username").val();
+        var password = $("#password").val();
+        var tell = $("#tell").val();
+        alert("注册成功");
+        var data={
+            "username": username,
+            "password": password,
+            "tell": tell
+        };
+        $.ajax({
+            type: "post",　　　　　　　　　　//以POST的方式发送请求
+            url: "http://localhost:8080/user/insert/",
+            data: JSON.stringify(data),　　　　　//上面拼凑的链接及参数
+            contentType: "application/json",
+            dataType: "json",
+            success: function (data) {},
+        });
+    }
+</script>
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.redisdemo1.dao.UserDao">
+    <select id="query" resultType="com.example.redisdemo1.pojo.user">
+        select * from user;
+    </select>
+    <select id="queryby" parameterType="integer" resultType="com.example.redisdemo1.pojo.user">
+        select * from user where id=#{id};
+    </select>
+    <update id="update" parameterType="com.example.redisdemo1.pojo.user" >
+        update user set username=#{username},password=#{password},tell=#{tell} where id=#{id};
+    </update>
+    <delete id="delete" parameterType="integer" >
+        delete from user where id=#{id};
+    </delete>
+    <insert id="insert" parameterType="com.example.redisdemo1.pojo.user" >
+        insert into user(username,password,tell) values (#{username},#{password},#{tell});
+    </insert>
+</mapper>
